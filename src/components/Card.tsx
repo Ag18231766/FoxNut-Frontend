@@ -6,7 +6,7 @@ type ProductCardProps = {
   description:string
 }
 
-export default function AllCards(){
+export function AllCards(){
     const [cards,SetCards] = useState<ProductCardProps[]>([{
       imageUrl:"bone.png",
       productName:"Fortifies Bones",

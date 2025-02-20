@@ -1,18 +1,23 @@
-import { FooterComp } from "./FooterComp"
-import { Hero } from "./Hero"
-import { Navbar } from "./Navbar"
-import AllCards from "./Card"
-import Journey from "./Journey"
+import { lazy, Suspense } from "react"
+import { Navbar } from "./components/Navbar"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Loader from "./components/Loader"
+import Privacy from "./Privacy"
+const Landing = lazy(() => import("./Landing"))
 
 function App() {
   
   return (
     <div>
+      
       <Navbar></Navbar>
-      <Hero></Hero>
-      <AllCards></AllCards>
-      <Journey></Journey>
-      <FooterComp></FooterComp>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Suspense fallback={<Loader></Loader>}><Landing></Landing></Suspense>}></Route>
+          <Route path="/privacy" element={<Suspense fallback={<Loader></Loader>}><Privacy></Privacy></Suspense>}></Route>
+        </Routes>
+      </BrowserRouter>
+      
     </div>
 
       
@@ -23,5 +28,3 @@ function App() {
 export default App
 
 
-// ideas 
-{/* <div className="flex justify-center content-center mt-24"><div className="text-6xl text-gray-600">Best Products We Offer</div></div> */}
