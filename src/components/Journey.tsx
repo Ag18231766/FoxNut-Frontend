@@ -2,7 +2,7 @@ import Carousel from "./Carousal";
 
 export default function Journey(){
     return(
-        <div className="grid grid-cols-2 gap-0 mb-0">
+        <div className="lg:grid grid-cols-2 gap-0 mb-0">
             <Carousel slides={['hero.png','leaf.png','sugar.jpg']}></Carousel>
             <div className="w-full min-h-screen flex justify-center items-center text-gray-600 p-10">
             <div className="max-w-4xl text-center">
