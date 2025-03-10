@@ -33,10 +33,10 @@ export default function Carousel({ slides }: CarouselProps) {
 
       {/* Navigation Buttons */}
       <div className="absolute top-0 h-full w-full flex justify-between items-center text-white px-5 text-3xl">
-        <button onClick={previousSlide} className="bg-black/50 p-2 rounded-full opacity-50">
+        <button onClick={previousSlide} className="bg-black/50 p-2 rounded-full opacity-100">
           ❮
         </button>
-        <button onClick={nextSlide} className="bg-black/50 p-2 rounded-full opacity-50">
+        <button onClick={nextSlide} className="bg-black/50 p-2 rounded-full opacity-100">
           ❯
         </button>
       </div>

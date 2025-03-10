@@ -8,15 +8,15 @@ type ProductCardProps = {
 
 export function AllCards(){
     const [cards,SetCards] = useState<ProductCardProps[]>([{
-      imageUrl:"bone.png",
+      imageUrl:"bone.jpg",
       productName:"Fortifies Bones",
       description:"Makhana strengthens bones with calcium, phosphorus, and magnesium. These minerals maintain density, support formation, and enhance calcium absorption."
     },{
-      imageUrl:"heart.png",
+      imageUrl:"heart.jpg",
       productName:"Enhances Cardiovascular Health",
       description:"Makhana boosts heart health with magnesium, potassium, fiber, and antioxidants, which help regulate blood pressure and cholesterol."
     },{
-      imageUrl:"anti.jpg",
+      imageUrl:"antioxidants.jpg",
       productName:"Good Antioxidants source",
       description:"Makhana's antioxidants neutralize free radicals, protecting against chronic diseases. Roasting enhances this antioxidant activity for better health benefits."
     },{
