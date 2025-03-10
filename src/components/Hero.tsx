@@ -5,12 +5,6 @@ export function Hero(){
                 <img src="hero.png" alt="Banner" className="h-2xl w-96 rounded-b-md"/>
             </div>
             <div className="mt-8 relative">
-                {/* <div
-                    className="absolute inset-0 bg-[url('leaf.png')] bg-cover  bg-center opacity-30 blur-sm"
-                    style={{
-                        zIndex: -1
-                    }}
-                ></div> */}
                 <div className="mb-3 lg:text-xl flex justify-center content-center"><div className="font-bold mt-0.5 mb-0.5 pl-1">Best Product Out There</div></div>
                 <div className="text-center lg:pl-24">
                     <div className="text-3xl lg:text-6xl">India’s finest 100% organic and healthy Makhana pure, crunchy, and packed with nutrition!</div>

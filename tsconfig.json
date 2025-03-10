@@ -1,4 +1,9 @@
 {
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    // Other options like target, module, etc.
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

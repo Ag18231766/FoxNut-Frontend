@@ -24,8 +24,8 @@ export function FooterComp(){
                 <div className="mt-2.5 flex justify-center content-center">
                     <div>
                         <div className="text-2xl flex justify-center content-center text-black mb-4">Contact Us</div>
-                        <div className="flex justify-center content-center">Phone: +9453869972</div>
-                        <div className="flex justify-center content-center">Email: amartyagupta@gmail.com</div>
+                        <div className="flex justify-center content-center">Phone: +91 9110908363</div>
+                        <div className="flex justify-center content-center">Email: connect@foxnami.com</div>
                     </div>
                 </div>
             

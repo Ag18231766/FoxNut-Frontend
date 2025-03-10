@@ -1,5 +1,4 @@
 import { FooterComp } from "./components/FooterComp";
-import Wrapper from "./components/Wrapper";
 
 export default function RefundPolicy(){
     return (

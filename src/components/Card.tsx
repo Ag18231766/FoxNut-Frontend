@@ -7,7 +7,7 @@ type ProductCardProps = {
 }
 
 export function AllCards(){
-    const [cards,SetCards] = useState<ProductCardProps[]>([{
+    const [cards] = useState<ProductCardProps[]>([{
       imageUrl:"bone.jpg",
       productName:"Fortifies Bones",
       description:"Makhana strengthens bones with calcium, phosphorus, and magnesium. These minerals maintain density, support formation, and enhance calcium absorption."
