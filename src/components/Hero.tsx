@@ -2,11 +2,12 @@ export function Hero(){
     return (
         <div className="grid grid-cols-1  lg:grid-cols-2 gap-1.5 mt-16 text-gray-600">
             
-            <div className="mt-14 relative">
+            <div className="pt-14 relative">
                 <div className="mb-3 lg:text-xl flex justify-center content-center"><div className="font-bold mt-0.5 mb-0.5 pl-1">Best Product Out There</div></div>
                 <div className="text-center lg:pl-24">
-                    <div className="text-3xl lg:text-6xl">FOXNAMI India’s Finest 100% Organic Makhana Pure, Crunchy, Nutritious!</div>
+                    <div className="text-3xl lg:text-6xl">FOXNAMI: Bihar’s Finest Makhana, Naturally Pure, Naturally Yours!</div>
                 </div>
+              
                 <div className="text-center mt-3 lg:mt-6 pl-1 flex justify-center content-center">
                     <div>Our Legacy is our products which are made locally in India</div>
                 </div>
