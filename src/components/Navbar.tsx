@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-export function Navbar(){
-    const [isMenuOpen,SetMenuOpen] = useState<boolean>(false);
-    const navigate = useNavigate();
+export function Navbar({ setIsMenuOpen, isMenuOpen }) {
+  const navigate = useNavigate();
     return (
         <div>
           <header className="flex justify-between items-end text-gray-50 py-6 px-8 md:px-32 bg-white drop-shadow-sm">
@@ -18,7 +17,8 @@ export function Navbar(){
                 <i className="bx bx-menu"
                     onClick={(e) => {
                       e.preventDefault();
-                      SetMenuOpen(!isMenuOpen);
+                      setIsMenuOpen(!isMenuOpen);
+                      
                     }}
                 ></i>
               </div>
@@ -30,16 +30,16 @@ export function Navbar(){
                 <li onClick={(e) => {navigate('/')
                     e.preventDefault();
                     SetMenuOpen(!isMenuOpen);
-                }} className="list-none w-full text-center p-4 hover::bg-gray-400 hover:text-gray-400 transition-all cursor-pointer text-gray-600">Home</li>
+                }} className="list-none w-full text-center p-4 hover:text-gray-400 transition-all cursor-pointer text-gray-600">Home</li>
                 {/* <li className="list-none w-full text-center p-4 hover::bg-gray-400 hover:text-gray-400 transition-all cursor-pointer text-gray-600">Products</li> */}
                 <li onClick={(e) => {navigate('/about')
                   e.preventDefault();
                   SetMenuOpen(!isMenuOpen);
-                }} className="list-none w-full text-center p-4 hover::bg-gray-400 hover:text-gray-400 transition-all cursor-pointer text-gray-600">About</li>
+                }} className="list-none w-full text-center p-4 hover:text-gray-400 transition-all cursor-pointer text-gray-600">About</li>
                 <li onClick={(e) => {navigate('/contact')
                   e.preventDefault();
                   SetMenuOpen(!isMenuOpen);
-                }} className="list-none w-full text-center p-4 hover::bg-gray-400 hover:text-gray-400 transition-all cursor-pointer text-gray-600">Contacts</li>
+                }} className="list-none w-full text-center p-4 hover:text-gray-400 transition-all cursor-pointer text-gray-600">Contacts</li>
               </div>
           </header>
       </div>
