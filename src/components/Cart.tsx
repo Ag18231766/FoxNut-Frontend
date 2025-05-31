@@ -2,25 +2,16 @@ import { useState } from "react";
 import CartDrawer from "./CartDrawer";
 import { Navbar } from "./Navbar";
 
-type ProductCardProps = {
-  id: number;
-  imageUrl: string;
-  productName: string;
-  description: string;
-  quantity: number;
-};
 
-type Props<T = ProductCardProps[]> = {
+
+type Props<T = object> = {
   Component: React.ComponentType<T>;
-  componentProps?: T;
-  SetCards?: React.Dispatch<React.SetStateAction<ProductCardProps[]>>;
 };
 
-export default function Cart<T extends object = object>({ Component, componentProps ,SetCards}: Props<T>) {
+export default function Cart({ Component}: Props) {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-  console.log("SetCards function is", SetCards , "from Cart component");
   return (
     <div className="relative">
       {/* Overlay */}
@@ -36,7 +27,7 @@ export default function Cart<T extends object = object>({ Component, componentPr
           isCartOpen={isCartOpen}
           setIsCartOpen={setIsCartOpen}
         />
-        <Component {...(componentProps as T)} SetCards={SetCards} />
+        <Component/>
       </div>
 
       {/* Cart Drawer */}
