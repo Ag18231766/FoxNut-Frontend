@@ -78,6 +78,7 @@ const initialSuggestedItems: CartItem[] = [
 const CartDrawer: React.FC<CartDrawerComponentProps> = ({ isOpen, onClose }) => {
     const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
     const [addPaperBag, setAddPaperBag] = useState(false);
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     const paperBagPrice = 20;
     const cartTotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -107,16 +108,6 @@ const CartDrawer: React.FC<CartDrawerComponentProps> = ({ isOpen, onClose }) => 
         }
         return [...prev, { ...item }];
       });
-    };
-
-    const scrollRef = useRef<HTMLDivElement>(null);
-
-    const scrollByAmount = 180;
-    const scrollLeft = () => {
-      if (scrollRef.current) scrollRef.current.scrollBy({ left: -scrollByAmount, behavior: "smooth" });
-    };
-    const scrollRight = () => {
-      if (scrollRef.current) scrollRef.current.scrollBy({ left: scrollByAmount, behavior: "smooth" });
     };
 
     return (
@@ -205,37 +196,49 @@ const CartDrawer: React.FC<CartDrawerComponentProps> = ({ isOpen, onClose }) => 
 
                         {/* Cart Items */}
                         <div className="flex-1 overflow-y-auto p-4">
-                            {cartItems.map((item) => (
-                                <div key={item.id} className="flex items-start space-x-3 py-4">
-                                    <img
-                                        src="fig1.jpeg"
-                                        alt={item.name}
-                                        className="w-16 h-16 object-cover rounded-lg bg-gray-100"
-                                    />
-                                    <div className="flex-1">
-                                        <h3 className="font-medium text-sm text-gray-800 mb-1">{item.name}</h3>
-                                        <p className="text-xs text-gray-500 mb-3">{item.subtitle}</p>
-                                        <div className="flex items-center justify-between">
-                                            <div className="flex items-center space-x-3">
-                                                <button
-                                                    onClick={() => updateQuantity(item.id, -1)}
-                                                    className="w-8 h-8 rounded bg-green-300 text-gray-600 flex items-center justify-center hover:bg-green-300"
-                                                >
-                                                    <i className='bx bx-minus'></i>
-                                                </button>
-                                                <span className="text-sm font-medium w-8 text-center">{item.quantity}</span>
-                                                <button
-                                                    onClick={() => updateQuantity(item.id, 1)}
-                                                    className="w-8 h-8 rounded bg-green-300 text-gray-600 flex items-center justify-center hover:bg-green-300"
-                                                >
-                                                    <i className='bx bx-plus'></i>
-                                                </button>
+                            {/* Divider before cart items if there are any */}
+                            {cartItems.length > 0 && (
+                              <>
+                                <hr className="border-t border-black mb-4" />
+                                {cartItems.map((item, idx) => (
+                                  <React.Fragment key={item.id}>
+                                    <div className="flex items-start space-x-3 py-4">
+                                        <img
+                                            src={`fig${item.id}.jpeg`}
+                                            alt={item.name}
+                                            className="w-16 h-16 object-cover rounded-lg bg-gray-100"
+                                        />
+                                        <div className="flex-1">
+                                            <h3 className="font-medium text-sm text-gray-800 mb-1">{item.name}</h3>
+                                            <p className="text-xs text-gray-500 mb-3">{item.subtitle}</p>
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center space-x-0 border border-gray-400 rounded-md overflow-hidden bg-white">
+                                                    <button
+                                                        onClick={() => updateQuantity(item.id, -1)}
+                                                        className="w-8 h-8 bg-green-300 text-gray-600 flex items-center justify-center hover:bg-green-300"
+                                                    >
+                                                        <i className='bx bx-minus'></i>
+                                                    </button>
+                                                    <span className="text-sm font-medium w-6 text-center">{item.quantity}</span>
+                                                    <button
+                                                        onClick={() => updateQuantity(item.id, 1)}
+                                                        className="w-8 h-8 bg-green-300 text-gray-600 flex items-center justify-center hover:bg-green-300"
+                                                    >
+                                                        <i className='bx bx-plus'></i>
+                                                    </button>
+                                                </div>
+                                                <span className="font-semibold text-lg">₹{item.price * item.quantity}</span>
                                             </div>
-                                            <span className="font-semibold text-lg">₹{item.price * item.quantity}</span>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                    {/* Divider between products, except after last */}
+                                    {idx < cartItems.length - 1 && (
+                                      <hr className="border-t border-gray-300 my-2" />
+                                    )}
+                                  </React.Fragment>
+                                ))}
+                              </>
+                            )}
 
                             {/* Coupon Section */}
                             <div className="py-4 border-t">
@@ -251,11 +254,13 @@ const CartDrawer: React.FC<CartDrawerComponentProps> = ({ isOpen, onClose }) => 
 
                             {/* You might also like */}
                             <div className="py-4 relative">
-                              <h3 className="font-medium mb-3 text-green-600">You might also like</h3>
+                              <h3 className="font-medium mb-3 text-gray-600 text-center">You might also like</h3>
                               <button
                                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border rounded-full shadow p-1 items-center justify-center text-lg hidden md:flex w-8 h-8"
                                 style={{marginLeft: '-12px'}}
-                                onClick={scrollLeft}
+                                onClick={() => {
+                                  if (scrollRef && scrollRef.current) scrollRef.current.scrollBy({ left: -180, behavior: 'smooth' });
+                                }}
                                 aria-label="Scroll left"
                               >
                                 <i className='bx bx-chevron-left text-2xl flex items-center justify-center'></i>
@@ -263,7 +268,7 @@ const CartDrawer: React.FC<CartDrawerComponentProps> = ({ isOpen, onClose }) => 
                               <div
                                 className="flex gap-3 overflow-x-auto pb-2 hide-scrollbar scroll-smooth"
                                 ref={scrollRef}
-                                style={{scrollBehavior: 'smooth'}}
+                                style={{scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none'}}
                               >
                                 {initialSuggestedItems.map((item) => (
                                   <div key={item.id} className="min-w-[140px] border rounded-lg p-3 bg-white flex-shrink-0 flex flex-col items-center">
@@ -288,7 +293,9 @@ const CartDrawer: React.FC<CartDrawerComponentProps> = ({ isOpen, onClose }) => 
                               <button
                                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border rounded-full shadow p-1 items-center justify-center text-lg hidden md:flex w-8 h-8"
                                 style={{marginRight: '-12px'}}
-                                onClick={scrollRight}
+                                onClick={() => {
+                                  if (scrollRef && scrollRef.current) scrollRef.current.scrollBy({ left: 180, behavior: 'smooth' });
+                                }}
                                 aria-label="Scroll right"
                               >
                                 <i className='bx bx-chevron-right text-2xl flex items-center justify-center'></i>
