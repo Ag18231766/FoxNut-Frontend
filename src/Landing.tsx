@@ -9,7 +9,7 @@ import CartDrawer from "./components/CartDrawer";
 
 export default function Landing() {
     const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
     <div className="relative">
@@ -27,7 +27,7 @@ export default function Landing() {
           setIsCartOpen={setIsCartOpen}
         />
         <>
-        <Hero isMenuOpen={isMenuOpen} />
+            <Hero isMenuOpen={isMenuOpen} />
             <AllCards></AllCards>
             <Journey></Journey>
             <FooterComp></FooterComp>
