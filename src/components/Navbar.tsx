@@ -106,48 +106,23 @@ export function Navbar({ setIsMenuOpen, isMenuOpen, setIsCartOpen }: NavbarProps
         <ul className="hidden lg:flex items-center gap-4 font-semibold text-gray-600 ml-20">
           <li onClick={() => navigate('/about')} className="p-3 hover:bg-gray-100 hover:text-gray-400 rounded-md transition-all cursor-pointer">About</li>
           <li onClick={() => navigate('/contact')} className="p-3 hover:bg-gray-100 hover:text-gray-400 rounded-md transition-all cursor-pointer">Contact</li>
-          <li onClick={() => navigate('/allproducts')} className="p-3 hover:bg-gray-100 hover:text-gray-600 rounded-md transition-all cursor-pointer">Our Products</li>
+          <li className="p-3 rounded-md transition-all cursor-not-allowed opacity-50 select-none">Our Products</li>
         </ul>
         {/* Search Bar (center) */}
         <div className="flex-1 flex justify-center relative" ref={searchRef}>
           <div className="w-full max-w-md">
             <input
               type="text"
-              className="w-full border border-gray-200 rounded-full px-5 py-2 focus:outline-none focus:ring-2 focus:ring-green-300 transition-all bg-gray-50"
+              className="w-full border border-gray-200 rounded-full px-5 py-2 focus:outline-none focus:ring-2 focus:ring-green-300 transition-all bg-gray-50 cursor-not-allowed opacity-50 select-none"
               placeholder="Search for products..."
               value={search}
-              onFocus={() => setSearchOpen(true)}
-              onChange={e => setSearch(e.target.value)}
+              disabled
             />
-            {/* Dropdown */}
-            <div
-              className={`absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-xl shadow-lg transition-all duration-200 ${searchOpen && results.length > 0 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-50`}
-              style={{ width: 320, minWidth: 220 }}
-              onMouseDown={e => e.preventDefault()}
-            >
-              {results.map(product => (
-                <div
-                  key={product.id}
-                  className="flex items-center gap-3 px-3 py-2 hover:bg-green-50 cursor-pointer border-b last:border-b-0"
-                  onClick={() => { navigate(`/productpage?id=${product.id}`); setSearchOpen(false); setSearch(""); }}
-                  style={{ minWidth: 220, maxWidth: 320 }}
-                >
-                  <img src={product.image} alt={product.name} className="w-10 h-10 object-cover rounded-lg bg-gray-100" />
-                  <div className="flex-1">
-                    <div className="font-semibold text-gray-800 text-sm">{product.name}</div>
-                    <div className="text-xs text-gray-500">₹{product.price}</div>
-                  </div>
-                </div>
-              ))}
-              {search && results.length === 0 && (
-                <div className="px-3 py-2 text-gray-400 text-center text-sm">No products found</div>
-              )}
-            </div>
           </div>
         </div>
         {/* Cart and Hamburger (rightmost) */}
         <div className="flex items-center gap-2 ml-4">
-          <button onClick={() => setIsCartOpen(true)} className="relative p-2 rounded-full hover:bg-gray-100 transition">
+          <button className="relative p-2 rounded-full opacity-50 cursor-not-allowed bg-gray-100" disabled>
             <i className="bx bx-cart text-2xl text-green-700"></i>
           </button>
           {/* Hamburger for mobile */}
@@ -178,10 +153,10 @@ export function Navbar({ setIsMenuOpen, isMenuOpen, setIsCartOpen }: NavbarProps
               {/* Removed Home button */}
               <li onClick={() => { navigate('/about'); setIsMenuOpen(false); }} className="p-3 hover:text-green-600 transition cursor-pointer">About</li>
               <li onClick={() => { navigate('/contact'); setIsMenuOpen(false); }} className="p-3 hover:text-green-600 transition cursor-pointer">Contact</li>
-              <li onClick={() => { navigate('/allproducts'); setIsMenuOpen(false); }} className="p-3 hover:text-green-600 transition cursor-pointer">Our Products</li>
-              <li onClick={() => { setIsCartOpen(true); setIsMenuOpen(false); }} className="p-3 hover:text-gray-600 transition cursor-pointer flex items-center gap-2">
+              {/* <li onClick={() => { navigate('/allproducts'); setIsMenuOpen(false); }} className="p-3 hover:text-green-600 transition cursor-pointer">Our Products</li> */}
+              {/* <li onClick={() => { setIsCartOpen(true); setIsMenuOpen(false); }} className="p-3 hover:text-gray-600 transition cursor-pointer flex items-center gap-2">
                 <i className="bx bx-cart text-xl"></i> Cart
-              </li>
+              </li> */}
             </ul>
           </div>
         </>

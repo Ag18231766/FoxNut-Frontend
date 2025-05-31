@@ -28,7 +28,7 @@ export default function Landing() {
         />
         <>
             <Hero isMenuOpen={isMenuOpen} />
-            <AllCards></AllCards>
+            {/* <AllCards></AllCards> */}
             <Journey></Journey>
             <FooterComp></FooterComp>
             <div className="fixed flex justify-center items-center bottom-5 right-5 ">

@@ -15,7 +15,7 @@ export default function RefundPolicy(){
 
                         If an order is refused or undeliverable, you will be charged the full shipping costs, including return shipping to FOXNAMI Suppliers. This applies to orders with incorrect addresses or where delivery attempts have been unsuccessful. If you provide an incorrect address, we will reship the order at your expense. If you choose not to reship, a 10% restocking fee plus shipping charges will apply.<br></br><br></br>
 
-                        For any questions regarding our return and refund policy, please contact us at foxnami@gmail.com.
+                        For any questions regarding our return and refund policy, please contact us at connect@foxnami.com.
                         </div>
                     </div>
             </div>

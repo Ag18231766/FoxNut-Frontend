@@ -28,8 +28,8 @@ function App() {
             <Route path="/return-policy" element={<Suspense fallback={<Loader></Loader>}><Cart Component={RefundPolicy}></Cart></Suspense>}></Route>
             <Route path="/contact" element={<Suspense fallback={<Loader></Loader>}><Cart Component={ContactPage}></Cart></Suspense>}></Route>          
             <Route path="/about" element={<Suspense fallback={<Loader></Loader>}><Cart Component={About}></Cart></Suspense>}></Route>  
-            <Route path="/productpage" element={<Suspense fallback={<Loader></Loader>}><Cart Component={ProductPage}></Cart></Suspense>}></Route> 
-            <Route path="/allproducts" element={<Suspense fallback={<Loader></Loader>}><Cart Component={AllProducts}></Cart></Suspense>}></Route>                  
+            {/* <Route path="/productpage" element={<Suspense fallback={<Loader></Loader>}><Cart Component={ProductPage}></Cart></Suspense>}></Route>  */}
+            {/* <Route path="/allproducts" element={<Suspense fallback={<Loader></Loader>}><Cart Component={AllProducts}></Cart></Suspense>}></Route>                   */}
 
           </Routes>
         </RecoilRoot>
