@@ -1,0 +1,2 @@
+whether you search of go from direct home page it will not require to fetch
+the data again it can be stored temporarily in a state 
