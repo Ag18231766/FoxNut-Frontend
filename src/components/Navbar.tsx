@@ -39,6 +39,7 @@ export function Navbar({ setIsMenuOpen, isMenuOpen, setIsCartOpen }: NavbarProps
           {/* Home button removed */}
           <li onClick={() => navigate('/about')} className="p-3 hover:bg-gray-100 hover:text-gray-400 rounded-md transition-all cursor-pointer">About</li>
           <li onClick={() => navigate('/contact')} className="p-3 hover:bg-gray-100 hover:text-gray-400 rounded-md transition-all cursor-pointer">Contact</li>
+          <li onClick={() => navigate('/allproducts')} className="p-3 hover:bg-gray-100 hover:text-green-600 rounded-md transition-all cursor-pointer">Our Products</li>
           <li onClick={() => setIsCartOpen(true)} className="p-3 hover:bg-gray-100 hover:text-gray-400 rounded-md transition-all cursor-pointer">Cart</li>
         </ul>
         {/* Cart and Hamburger (right) */}

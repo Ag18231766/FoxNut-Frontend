@@ -85,6 +85,8 @@ const products = [
   },
 ];
 
+const showcaseProducts = products.slice(0, 4); // Show only first 4 products
+
 export const AllCards: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -92,7 +94,7 @@ export const AllCards: React.FC = () => {
         Products
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
+        {showcaseProducts.map((product) => (
           <div
             key={product.id}
             className="bg-white rounded-xl shadow hover:shadow-lg transition-shadow flex flex-col border border-gray-100 relative group"
