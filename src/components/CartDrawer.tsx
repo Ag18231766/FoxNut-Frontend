@@ -204,7 +204,7 @@ const CartDrawer: React.FC<CartDrawerComponentProps> = ({ isOpen, onClose }) => 
                                   <React.Fragment key={item.id}>
                                     <div className="flex items-start space-x-3 py-4">
                                         <img
-                                            src={`fig${item.id}.jpeg`}
+                                            src={`fig${item.id > 100 ? item.id - 100 : item.id}.jpeg`}
                                             alt={item.name}
                                             className="w-16 h-16 object-cover rounded-lg bg-gray-100"
                                         />
