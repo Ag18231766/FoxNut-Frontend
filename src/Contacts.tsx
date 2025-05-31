@@ -16,6 +16,7 @@ export default function ContactPage() {
         message: '',
         mobileNumber: ''
     });
+   
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -38,13 +39,14 @@ export default function ContactPage() {
 
     return (
         <div>
+           
             <div className=" flex flex-col justify-center items-center h-screen">
                 <div className="w-full max-w-7xl p-6 bg-gray-100">
                     <div className="flex justify-center">
-                        <div className="text-3xl pt-5 mb-5 text-gray-600">Connect With Us</div>
+                        <div className="text-3xl font-['Chewy'] pt-5 mb-5 text-gray-600">Connect With Us</div>
                     </div>
                     <div className="flex justify-center">
-                        <div className="text-gray-600">You're welcome to contact us at any time. We're ready to assist and excited to connect with you soon!</div>
+                        <div className="text-gray-600 font-['Chewy']">You're welcome to contact us at any time. We're ready to assist and excited to connect with you soon!</div>
                     </div>
                     <div className="h-full w-full">
                         <Wrapper labelName="First Name" name="name" value={formData.name} onChange={handleInputChange} />
