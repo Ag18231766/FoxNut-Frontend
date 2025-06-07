@@ -1,9 +1,8 @@
 import Wrapper from "./components/Wrapper";
 
 
-
-
 export default function TermsAndConditions() {
+
     return(
         <Wrapper heading="Terms And Conditions" arr={[{   
             key:1,
@@ -40,5 +39,3 @@ export default function TermsAndConditions() {
         }]}></Wrapper>
     )
 }
-
-

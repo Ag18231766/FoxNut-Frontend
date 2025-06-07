@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from "react"
+import { lazy, Suspense } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Loader from "./components/Loader"
 import Privacy from "./Privacy"
@@ -6,10 +6,10 @@ import TermsAndConditions from "./Terms"
 import RefundPolicy from "./RefundPolicy"
 import ContactPage from "./Contacts"
 import About from "./AboutUs"
-import ProductPage from "./ProductPage"
+// import ProductPage from "./ProductPage"
 import { RecoilRoot } from "recoil"
 import Cart from "./components/Cart"
-import { AllProducts } from "./components/AllProducts"
+// import { AllProducts } from "./components/AllProducts"
 const Landing = lazy(() => import("./Landing"))
 
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {AllCards} from "./components/Card";
+// import {AllCards} from "./components/Card";
 import { FooterComp } from "./components/FooterComp";
 import { Hero } from "./components/Hero";
 import Journey from "./components/Journey";

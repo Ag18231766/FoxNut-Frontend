@@ -7,63 +7,64 @@ export interface NavbarProps {
   isCartOpen: boolean;
   setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
+// setIsCartOpen is not used in this component, but it's included in the props for consistency with your requirements.
 
-export function Navbar({ setIsMenuOpen, isMenuOpen, setIsCartOpen }: NavbarProps) {
+export function Navbar({ setIsMenuOpen, isMenuOpen,  }: NavbarProps) {
   const navigate = useNavigate();
   const menuRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
 
   // --- Search Bar State ---
   const [searchOpen, setSearchOpen] = useState(false);
-  const [search, setSearch] = useState("");
-  const [results, setResults] = useState<typeof searchProducts>([]);
-  const [searchProducts] = useState([
-    // Example product data (should match your product structure)
-    {
-      id: 1,
-      name: "Millet mlk original- 200ml",
-      price: 354,
-      description: "The most delicious vegan mlk to exist",
-      image: "/fig1.jpeg",
-      badge: "Bestseller",
-      sold: 1200,
-    },
-    {
-      id: 2,
-      name: "Vegan curd - 450g",
-      price: 99,
-      description: "You know it's good when 'curd' and 'vegan' are seen together",
-      image: "/fig2.jpeg",
-      badge: "Popular",
-      sold: 900,
-    },
-    {
-      id: 3,
-      name: "Millet mlk chocolate flavour - 200 ml",
-      price: 354,
-      description: "The healthiest chocolatey treat out there",
-      image: "/fig3.jpeg",
-      badge: "New",
-      sold: 700,
-    },
-    // ...add all products here...
-  ]);
+  const [search] = useState("");
+  // const [results, setResults] = useState<typeof searchProducts>([]);
+  // const [searchProducts] = useState([
+  //   // Example product data (should match your product structure)
+  //   {
+  //     id: 1,
+  //     name: "Millet mlk original- 200ml",
+  //     price: 354,
+  //     description: "The most delicious vegan mlk to exist",
+  //     image: "/fig1.jpeg",
+  //     badge: "Bestseller",
+  //     sold: 1200,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Vegan curd - 450g",
+  //     price: 99,
+  //     description: "You know it's good when 'curd' and 'vegan' are seen together",
+  //     image: "/fig2.jpeg",
+  //     badge: "Popular",
+  //     sold: 900,
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Millet mlk chocolate flavour - 200 ml",
+  //     price: 354,
+  //     description: "The healthiest chocolatey treat out there",
+  //     image: "/fig3.jpeg",
+  //     badge: "New",
+  //     sold: 700,
+  //   },
+  //   // ...add all products here...
+  // ]);
 
   // Debounce search
-  useEffect(() => {
-    if (!search) {
-      setResults([]);
-      return;
-    }
-    const handler = setTimeout(() => {
-      setResults(
-        searchProducts.filter((p) =>
-          p.name.toLowerCase().includes(search.toLowerCase())
-        )
-      );
-    }, 250); // 250ms debounce
-    return () => clearTimeout(handler);
-  }, [search, searchProducts]);
+    // useEffect(() => {
+    //   if (!search) {
+    //     setResults([]);
+    //     return;
+    //   }
+    //   const handler = setTimeout(() => {
+    //     setResults(
+    //       searchProducts.filter((p) =>
+    //         p.name.toLowerCase().includes(search.toLowerCase())
+    //       )
+    //     );
+    //   }, 250); // 250ms debounce
+    //   return () => clearTimeout(handler);
+    // }, [search, searchProducts]);
 
   // Close menu when clicking outside
   React.useEffect(() => {
